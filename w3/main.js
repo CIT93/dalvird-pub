@@ -1,5 +1,5 @@
 
-//function determineHouseHoldPts(membersInHousehold) {
+function determineHouseHoldPts(membersInHousehold) {
 
     // If you live alone, then add 14 points to your carbon footprint.
     if (membersInHousehold === 1) {
@@ -24,9 +24,9 @@
         cfp += 2;
     }
     console.log(`Based on the number of members in the household ${membersInHousehold} the carbon points added are: ${cfp}.`)
-//}
+}
 
 let cfp = 0;
 const membersInHousehold = 1;
-// determineHouseHoldPts(3)
-// determineHouseHoldPts(4)
+determineHouseHoldPts(3)
+determineHouseHoldPts(4)
