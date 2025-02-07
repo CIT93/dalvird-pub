@@ -57,7 +57,20 @@ function start(houseHoldMembers, houseSize) {
 }
 
 function displayOutput () {
-
+    for (arr of cfpData) {
+        console.log(arr);
+        const output = document.getElementById("output");
+        const newP = document.createElement("p");
+        const newP1 = document.createElement("p");
+        const newP2 = document.createElement("p");
+        newP.textContent = `Carbon FootPrint total is ${arr[4]}:`;
+        newP1.textContent = `A Household with ${arr[0]} members, results in ${arr[2]} points`;
+        newP2.textContent = `House size of ${arr[1]}, results in ${arr[2]} points`;
+    
+        output.appendChild(newP);
+        output.appendChild(newP1);
+        output.appendChild(newP2);
+    }
 }
 
 start(5, "apt");
