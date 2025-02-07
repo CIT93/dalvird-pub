@@ -60,7 +60,7 @@ function displayOutput () {
     for (arr of cfpData) {
         console.log(arr);
         const output = document.getElementById("output");
-        const newP = document.createElement("p");
+        const newP = document.createElement("h3");
         const newP1 = document.createElement("p");
         const newP2 = document.createElement("p");
         newP.textContent = `Carbon FootPrint total is ${arr[4]}:`;
