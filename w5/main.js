@@ -1,3 +1,24 @@
+
+const bookData = [
+  { title: "Artemis Fowl", year: 2001, rating: 10 },
+  { title: "Atomic Habits", year: 2018, rating: 10},
+  { title: "The Grapes of Wrath", year: 1939, rating: 8}
+];
+
+const output = document.getElementById("output");
+let newHeading = document.createElement("h1");
+newHeading.textContent = "Top Three Books Rating:";
+output.appendChild(newHeading);
+
+for (book of bookData) {
+  // let newH1 = document.createElement("h3");
+  // let newH2 = document.createElement("h3");
+  let newH3 = document.createElement("h3");
+  newH3.textContent = `${book.title} ${book.year} has a rating of ${book.rating}\n`;
+  output.appendChild(newH3);
+}
+
+
 const cfpData = [];
 // function cfpDataObj(houseHoldMembers, houseSize, houseHoldPoints, houseSizePts, total) {
 //   // this.houseHoldMembers = houseHoldMembers, 
@@ -108,33 +129,33 @@ function displayOutput(){
     //     }
 }
   
-  start(1, "apt");
-  start(2, "apt");
-  start(3, "apt");
-  start(4, "apt");
-  start(5, "apt");
-  start(6, "apt");
-  start(7, "apt");
-  start(1, "small");
-  start(2, "small");
-  start(3, "small");
-  start(4, "small");
-  start(5, "small");
-  start(6, "small");
-  start(7, "small");
-  start(1, "medium");
-  start(2, "medium");
-  start(3, "medium");
-  start(4, "medium");
-  start(5, "medium");
-  start(6, "medium");
-  start(7, "medium");
-  start(1, "large");
-  start(2, "large");
-  start(3, "large");
-  start(4, "large");
-  start(5, "large");
-  start(6, "large");
-  start(7, "large");
+  // start(1, "apt");
+  // start(2, "apt");
+  // start(3, "apt");
+  // start(4, "apt");
+  // start(5, "apt");
+  // start(6, "apt");
+  // start(7, "apt");
+  // start(1, "small");
+  // start(2, "small");
+  // start(3, "small");
+  // start(4, "small");
+  // start(5, "small");
+  // start(6, "small");
+  // start(7, "small");
+  // start(1, "medium");
+  // start(2, "medium");
+  // start(3, "medium");
+  // start(4, "medium");
+  // start(5, "medium");
+  // start(6, "medium");
+  // start(7, "medium");
+  // start(1, "large");
+  // start(2, "large");
+  // start(3, "large");
+  // start(4, "large");
+  // start(5, "large");
+  // start(6, "large");
+  // start(7, "large");
   
-displayOutput();
+// displayOutput();
