@@ -37,49 +37,51 @@ function determineHouseHoldPts(numberInHousehold) {
 }
   
 function displayObjOutput(obj) {
-    const output = document.getElementById("output");
     for (obj of cfpData){
       const newP = document.createElement("p");
       const newH2 = document.createElement("h2");
       const newH3 = document.createElement("h3");
-      newH2.textContent = `Carbon Footprint total is ${obj.total}`;
+      newH2.textContent = `Carbon Footprint total is ${obj.total} for ${obj.firstName} ${obj.lastName}`;
       newH3.textContent = 'Based on Number in Household and Size of Home'
       newP.textContent = `This number is based on the number of members in a house hold of ${obj.houseHoldMembers} (score: ${obj.houseHoldPTS}) `;
       newP.textContent += `and a ${obj.houseSize} size of the home (score: ${obj.houseSizePts})`;
-      output.appendChild(newH2);
-      output.appendChild(newH3);
-      output.appendChild(newP);
+      OUTPUT.appendChild(newH2);
+      OUTPUT.appendChild(newH3);
+      OUTPUT.appendChild(newP);
     }
 }
 
-function start(houseHoldMembers, houseSize) {
+function start(houseHoldMembers, houseSize, firstName, lastName) {
     const houseHoldPTS = determineHouseHoldPts(houseHoldMembers);
     const houseSizePts = determineHouseSizePts(houseSize);
     const total = houseHoldPTS + houseSizePts;
     cfpData.push({
+        firstName: firstName,
+        lastName: lastName,
         houseHoldMembers: houseHoldMembers, 
         houseSize: houseSize, 
         houseHoldPTS: houseHoldPTS, 
         houseSizePts: houseSizePts, 
         total: total
     });
+    console.log(cfpData);
 }
   
-function displayOutput(){
-    for(obj of cfpData) {
-        console.log(obj);
-        const newP = document.createElement("p");
-        const newH2 = document.createElement("h2");
-        const newH3 = document.createElement("h3");
-        newH2.textContent = `Carbon Footprint total is ${obj.total}`;
-        newH3.textContent = 'Based on Number in Household and Size of Home'
-        newP.textContent = `This number is based on the number of members in the hold of ${obj.houseHoldMembers} (score: ${obj.houseHoldPTS})`;
-        newP.textContent += `and a ${obj.houseSize} size of home (score: ${obj.houseSizePts})`
-        OUTPUT.appendChild(newH2);
-        OUTPUT.appendChild(newH3);
-        OUTPUT.appendChild(newP);
-    }
-}
+// function displayOutput(){
+//     for(obj of cfpData) {
+//         //console.log(obj);
+//         const newP = document.createElement("p");
+//         const newH2 = document.createElement("h2");
+//         const newH3 = document.createElement("h3");
+//         newH2.textContent = `Carbon Footprint total is ${obj.total} for ${obj.firstName} ${obj.lastName}`;
+//         newH3.textContent = 'Based on Number in Household and Size of Home'
+//         newP.textContent = `This number is based on the number of members in the hold of ${obj.houseHoldMembers} (score: ${obj.houseHoldPTS})`;
+//         newP.textContent += `and a ${obj.houseSize} size of home (score: ${obj.houseSizePts})`
+//         OUTPUT.appendChild(newH2);
+//         OUTPUT.appendChild(newH3);
+//         OUTPUT.appendChild(newP);
+//     }
+// }
 
 FORM.addEventListener("submit", function(e) {  //callback
     e.preventDefault();
@@ -87,10 +89,10 @@ FORM.addEventListener("submit", function(e) {  //callback
     const lastName = FORM.lastname.value;
     const houseHoldMembers = parseInt(FORM.housem.value);
     const houseSize = FORM.houses.value;
-    console.log(`In ${firstName} ${lastName}'s ${houseSize} house, there are ${houseHoldMembers} members.`);
-    start(houseHoldMembers,houseSize);
-    OUTPUT.innerHTML = '';
-    displayOutput();
+    //console.log(`In ${firstName} ${lastName}'s ${houseSize} house, there are ${houseHoldMembers} members.`);
+    start(houseHoldMembers,houseSize, firstName, lastName);
+    OUTPUT.innerHTML = "";
+    displayObjOutput();
     FORM.reset();
 });
 
