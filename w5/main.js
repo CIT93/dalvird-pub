@@ -1,22 +1,41 @@
 
-const bookData = [
-  { title: "Artemis Fowl", year: 2001, rating: 10 },
-  { title: "Atomic Habits", year: 2018, rating: 10},
-  { title: "The Grapes of Wrath", year: 1939, rating: 8}
+const movieData = [
+  { title: "The Great Indian Kitchen", year: 2021, rating: 8, watched:1  },
+  { title: "What Happened to Monday", year: 2017, rating: 8, watched:1  },
+  { title: "Bhai Taru Singh", year: 2018, rating: 10, watched:3 }
 ];
 
 const output = document.getElementById("output");
 let newHeading = document.createElement("h1");
-newHeading.textContent = "Top Three Books Rating:";
+newHeading.textContent = "Top Three Movies Rating:";
 output.appendChild(newHeading);
 
-for (book of bookData) {
-  // let newH1 = document.createElement("h3");
-  // let newH2 = document.createElement("h3");
-  let newH3 = document.createElement("h3");
-  newH3.textContent = `${book.title} ${book.year} has a rating of ${book.rating}\n`;
-  output.appendChild(newH3);
-}
+// for (book of bookData) {
+//   // let newH1 = document.createElement("h3");
+//   // let newH2 = document.createElement("h3");
+//   let newH3 = document.createElement("h3");
+//   newH3.textContent = `${book.title} ${book.year} has a rating of ${book.rating}\n`;
+//   output.appendChild(newH3);
+// }
+movieData.forEach((movie) => {
+  let newH1 = document.createElement("h3");
+  newH1.textContent = `${movie.title} ${movie.year} has a rating of ${movie.rating}\n`;
+  output.appendChild(newH1);
+
+  if (movie.watched <= 1 && (movie.rating < 7 || movie.year < 2020)) {
+    const lowTitle = document.createElement("h1");
+    lowTitle.textContent = `Least Recommended Movie (or oldest movie): ${movie.title}`;
+    const output_list = document.getElementById("recommendation");
+    output_list.appendChild(lowTitle);
+  }
+
+  if (movie.watched > 1 && movie.rating > 7) {
+    const newTitle = document.createElement("h1");
+    newTitle.textContent = `Top Recommended Movie: ${movie.title}`;
+    const output_list = document.getElementById("recommendation");
+    output_list.appendChild(newTitle);
+  }
+});
 
 
 const cfpData = [];
