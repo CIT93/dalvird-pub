@@ -17,7 +17,7 @@ output.appendChild(newHeading);
 //   newH3.textContent = `${book.title} ${book.year} has a rating of ${book.rating}\n`;
 //   output.appendChild(newH3);
 // }
-movieData.forEach((movie) => {
+movieData.forEach(function(movie) {
   let newH1 = document.createElement("h3");
   newH1.textContent = `${movie.title} ${movie.year} has a rating of ${movie.rating}\n`;
   output.appendChild(newH1);
