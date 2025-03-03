@@ -72,8 +72,3 @@ function renderTbl(data) {
 }
 
 export { renderTbl, renderTblHeading };
-
-
-// we got error first because we didn't have 'type="module"', then it was
-// because of the reference to TBL the index.html ID. Then we finally got 
-// an error of cfpData but that was because of the debugging in console.

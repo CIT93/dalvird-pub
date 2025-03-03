@@ -1,44 +1,69 @@
 
 const movieData = [
-  { title: "The Great Indian Kitchen", year: 2021, rating: 8, watched:1  },
+  { title: "The Great Indian Kitchen", year: 2021, rating: 8, watched:2  },
   { title: "What Happened to Monday", year: 2017, rating: 8, watched:1  },
-  { title: "Bhai Taru Singh", year: 2018, rating: 10, watched:3 }
+  { title: "Papillon", year: 2017, rating: 10, watched:2 },
+  { title: "Chaar Sahibzaade", year: 2014, rating: 10, watched:3 },
+  { title: "Bhai Taru Singh", year: 2012, rating: 10, watched:3 },
+  { title: "The Shawshank Redemption", year: 1994, rating: 9, watched:2 },
+  { title: "The Platform", year: 2019, rating: 8, watched:1 }
 ];
+startMovie();
 
-const output = document.getElementById("output");
-let newHeading = document.createElement("h1");
-newHeading.textContent = "Top Three Movies Rating:";
-output.appendChild(newHeading);
+function startMovie() {
+  const movieList = []; // to store movies
+  const newTitle = document.createElement("h1");
+  newTitle.textContent = `Movie(s) to Watch Tonight:\n`;
+  const output = document.getElementById("output");
+  output.appendChild(newTitle);
 
-// for (book of bookData) {
-//   // let newH1 = document.createElement("h3");
-//   // let newH2 = document.createElement("h3");
-//   let newH3 = document.createElement("h3");
-//   newH3.textContent = `${book.title} ${book.year} has a rating of ${book.rating}\n`;
-//   output.appendChild(newH3);
-// }
-movieData.forEach(function(movie) {
-  let newH1 = document.createElement("h3");
-  newH1.textContent = `${movie.title} ${movie.year} has a rating of ${movie.rating}\n`;
-  output.appendChild(newH1);
+  movieData.forEach(function(movie) {
+    if (movie.watched > 1 && movie.rating >= 7) {
+      movieList.push(movie);
+    }
+  });
+  makeTable(movieList);
+}
 
-  if (movie.watched <= 1 && (movie.rating < 7 || movie.year < 2020)) {
-    const lowTitle = document.createElement("h1");
-    lowTitle.textContent = `Least Recommended Movie (or oldest movie): ${movie.title}`;
-    const output_list = document.getElementById("recommendation");
-    output_list.appendChild(lowTitle);
+function makeTable(data) {
+  const output = document.getElementById("output");
+  const table = document.createElement("table");
+  const thead = document.createElement("thead");
+  const tr1 = document.createElement("tr");
+  //const keysArr = Object.keys(data[0]); // Grab the keys of an object (headings)
+  keysArr = ["Title", "Year", "Rating", "Watched"];
+  
+  for (let i = 0; i < keysArr.length; i++) { // creating header row
+    const th = document.createElement("th");
+    th.textContent = keysArr[i];
+    tr1.appendChild(th);
   }
+  thead.appendChild(tr1);
+  table.appendChild(thead);
+  output.appendChild(table);
+  
+  const tbody = document.createElement("tbody");
+  data.forEach(movie => {
+    const tr = document.createElement("tr");
+    const tdTitle = document.createElement("td");
+    const tdYr = document.createElement("td");
+    const tdRating = document.createElement("td");
+    const tdWatched = document.createElement("td");
+    tdTitle.textContent = movie.title;
+    tdYr.textContent = movie.year;
+    tdRating.textContent = movie.rating;
+    tdWatched.textContent = movie.watched;
+    tr.appendChild(tdTitle);
+    tr.appendChild(tdYr);
+    tr.appendChild(tdRating);
+    tr.appendChild(tdWatched);
+    tbody.appendChild(tr);
+  });
+  table.appendChild(tbody);
+}
 
-  if (movie.watched > 1 && movie.rating > 7) {
-    const newTitle = document.createElement("h1");
-    newTitle.textContent = `Top Recommended Movie: ${movie.title}`;
-    const output_list = document.getElementById("recommendation");
-    output_list.appendChild(newTitle);
-  }
-});
 
-
-const cfpData = [];
+// const cfpData = [];
 // function cfpDataObj(houseHoldMembers, houseSize, houseHoldPoints, houseSizePts, total) {
 //   // this.houseHoldMembers = houseHoldMembers, 
 //   // this.houseSize = houseSize, 
