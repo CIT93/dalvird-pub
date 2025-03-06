@@ -24,11 +24,14 @@ function renderTbl(data) {
     const tbody = document.createElement("tbody");
     const tr = document.createElement("tr");
   
-    data.forEach(function(text) {
+    data.forEach(function(obj) {
+      for (const [key, value] of Object.entries(obj)) {
+        console.log(`key: ${key} value: ${value}`);
+      }
       const tdName = document.createElement("td");
       const tdTotal = document.createElement("td");
-      tdName.textContent = text['fname'];
-      tdTotal.textContent = text['total'];
+      tdName.textContent = obj['fname'];
+      tdTotal.textContent = obj['total'];
       tr.appendChild(tdName);
       tr.appendChild(tdTotal);
     });
@@ -49,12 +52,12 @@ function renderTbl(data) {
   else { // table is already created (no need for heading)
     const tbody = document.querySelector("tbody");
     tbody.innerHTML = "";
-    data.forEach(function(text) {
+    data.forEach(function(obj) {
       const tr = document.createElement("tr");
       const tdName = document.createElement("td");
       const tdTotal = document.createElement("td");
-      tdName.textContent = text['fname'];
-      tdTotal.textContent = text['total'];
+      tdName.textContent = obj['fname'];
+      tdTotal.textContent = obj['total'];
       tr.appendChild(tdName);
       tr.appendChild(tdTotal);
       tbody.appendChild(tr);
