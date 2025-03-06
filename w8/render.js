@@ -16,17 +16,15 @@ function renderTblHeading() {
     return (table);
   }
 
-  // Coding challenge below:
 function renderTbl(data) {
   const tblCreated = document.querySelector("table");
   if (tblCreated === null) {
-    const table = renderTblHeading(); // create table heading
+    const table = renderTblHeading();
     const tbody = document.createElement("tbody");
     const tr = document.createElement("tr");
   
     data.forEach(function(obj) {
       for (const [key, value] of Object.entries(obj)) {
-        //console.log(`key: ${key} value: ${value}`);
         if (key === "lname" || key === "houseHoldPTS" || key === "houseSizePts") {
         }
         else {
@@ -56,7 +54,7 @@ function renderTbl(data) {
     table.appendChild(tbody);
     TBL.appendChild(table);
   }
-  else { // table is already created (no need for heading)
+  else {
     const tbody = document.querySelector("tbody");
     tbody.innerHTML = "";
     data.forEach(function(obj) {
