@@ -27,7 +27,9 @@ function renderTbl(data) {
     data.forEach(function(obj) {
       for (const [key, value] of Object.entries(obj)) {
         //console.log(`key: ${key} value: ${value}`);
-        if (key === "fname" || key === "total" || key === "houseHoldMembers" || key === "houseSize") {
+        if (key === "lname" || key === "houseHoldPTS" || key === "houseSizePts") {
+        }
+        else {
           const td = document.createElement("td");
           td.textContent = obj[key];
           tr.appendChild(td);
