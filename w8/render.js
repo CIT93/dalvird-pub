@@ -4,7 +4,7 @@ function renderTblHeading() {
     const table = document.createElement("table");
     const thead = document.createElement("thead");
     const tr = document.createElement("tr");
-    const headingTextArr = ["Name", "Total"];
+    const headingTextArr = ["Name", "House Members", "House Size", "Total"];
   
     headingTextArr.forEach(function(text) {
       const th = document.createElement("th");
@@ -26,14 +26,19 @@ function renderTbl(data) {
   
     data.forEach(function(obj) {
       for (const [key, value] of Object.entries(obj)) {
-        console.log(`key: ${key} value: ${value}`);
+        //console.log(`key: ${key} value: ${value}`);
+        if (key === "fname" || key === "total" || key === "houseHoldMembers" || key === "houseSize") {
+          const td = document.createElement("td");
+          td.textContent = obj[key];
+          tr.appendChild(td);
+        }
+        // const tdName = document.createElement("td");
+        // const tdTotal = document.createElement("td");
+        // tdName.textContent = obj['fname'];
+        // tdTotal.textContent = obj['total'];
+        // tr.appendChild(tdName);
+        // tr.appendChild(tdTotal);
       }
-      const tdName = document.createElement("td");
-      const tdTotal = document.createElement("td");
-      tdName.textContent = obj['fname'];
-      tdTotal.textContent = obj['total'];
-      tr.appendChild(tdName);
-      tr.appendChild(tdTotal);
     });
   
     // const tdBtn = document.createElement("td");

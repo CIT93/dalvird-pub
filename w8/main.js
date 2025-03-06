@@ -10,13 +10,13 @@ function start(houseHoldMembers, houseSize, firstName, lastName) {
   const houseSizePts = determineHouseSizePts(houseSize);
   const total = houseHoldPTS + houseSizePts;
   cfpData.push({
+      fname: firstName,
+      lname: lastName,
       houseHoldMembers: houseHoldMembers, 
       houseSize: houseSize, 
       houseHoldPTS: houseHoldPTS, 
       houseSizePts: houseSizePts, 
-      total: total,
-      fname: firstName,
-      lname: lastName
+      total: total
   });
 }
 
