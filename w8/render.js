@@ -29,15 +29,9 @@ function renderTbl(data) {
         }
         else {
           const td = document.createElement("td");
-          td.textContent = obj[key];
+          td.textContent = value;
           tr.appendChild(td);
         }
-        // const tdName = document.createElement("td");
-        // const tdTotal = document.createElement("td");
-        // tdName.textContent = obj['fname'];
-        // tdTotal.textContent = obj['total'];
-        // tr.appendChild(tdName);
-        // tr.appendChild(tdTotal);
       }
     });
   
@@ -59,14 +53,15 @@ function renderTbl(data) {
     tbody.innerHTML = "";
     data.forEach(function(obj) {
       const tr = document.createElement("tr");
-      const tdName = document.createElement("td");
-      const tdTotal = document.createElement("td");
-      tdName.textContent = obj['fname'];
-      tdTotal.textContent = obj['total'];
-      tr.appendChild(tdName);
-      tr.appendChild(tdTotal);
-      tbody.appendChild(tr);
-      tblCreated.appendChild(tbody);
+      for (const [key, value] of Object.entries(obj)) {
+        if (key !== "lname" && key !== "houseHoldPTS" && key !== "houseSizePts") {
+          const td = document.createElement("td");
+          td.textContent = value;
+          tr.appendChild(td);
+          tbody.appendChild(tr);
+          tblCreated.appendChild(tbody);
+        }
+      }
     });
     // const tdBtn = document.createElement("td");
     // const btnEdit = document.createElement("button");
