@@ -36,3 +36,7 @@ followed by clearing the entire webpage, and then rendering the table with the o
 - After that the code goes back to the FORM.addEventListener function(), where it proceeds to empty the inputs in the form. Ready for a second entry from the user.
 
 
+#### Feedback for video
+> The explanation given for the code was very clear and simple. 
+> I realized I should have been a bit more descriptive for the other code, I only described the behavior of the new code we wrote (renderTbl) nothing on determineHouseholdPts or determineHouseSizePts. I will do that next time to be clear and concise. 
+> The video was helpful, it showed how to explain the code properly
