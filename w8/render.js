@@ -17,10 +17,15 @@ function renderTblHeading() {
   }
 
 function renderTbl(data) {
-  const table = renderTblHeading(); // headings
-  const tbody = renderTblBody(data); // tbody
-  table.appendChild(tbody); 
-  TBL.appendChild(table);
+  if (data.length <= 0) {
+    TBL.innerHTML = "";
+  }
+  else {
+    const table = renderTblHeading(); // headings
+    const tbody = renderTblBody(data); // tbody
+    table.appendChild(tbody); 
+    TBL.appendChild(table);
+  }
 }
 
 function renderTblBtn(index, data) {
