@@ -40,3 +40,9 @@ followed by clearing the entire webpage, and then rendering the table with the o
 > The explanation given for the code was very clear and simple. 
 > I realized I should have been a bit more descriptive for the other code, I only described the behavior of the new code we wrote (renderTbl) nothing on determineHouseholdPts or determineHouseSizePts. I will do that next time to be clear and concise. 
 > The video was helpful, it showed how to explain the code properly
+
+####  Code Challenge: How to repopulate the inputs with the row data
+- Begin by capturing data of row where the edit button was clicked
+- Capture the inputs using getElementsByName();
+- Change the input.value to the index value from the object
+- Then after the user changes the values again, they will submit the form and it will be remade
