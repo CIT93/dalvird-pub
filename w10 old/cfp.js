@@ -1,6 +1,6 @@
 //code challenge 1
 
-const determineHouseSizePts = function(size) {
+function determineHouseSizePts(size) {
     let houseSizePts = 0;
     if(size === "large") {
       houseSizePts = 10;
@@ -14,7 +14,7 @@ const determineHouseSizePts = function(size) {
       return houseSizePts;
   }
   
-  const determineHouseHoldPts = function(numberInHousehold) {
+function determineHouseHoldPts(numberInHousehold) {
     let houseHoldPoints = 0;
     if (numberInHousehold === 1) {
       houseHoldPoints = 14;

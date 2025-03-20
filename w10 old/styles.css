@@ -18,9 +18,8 @@ table, th, td {
 tbody tr:nth-child(odd) {
     background-color:dimgrey
 }
-.error {
+#error {
     color: red;
-}
-.invalid {
-    border-color: red;
+    text-transform: uppercase;
+    font-family: "Lucida Console", "Courier New", monospace;
 }

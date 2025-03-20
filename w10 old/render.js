@@ -1,7 +1,7 @@
 import {TBL, FORM} from "./global.js";
 import {saveLS} from "./storage.js"
 
-const renderTblHeading = function() {
+function renderTblHeading() {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
@@ -16,7 +16,7 @@ const renderTblHeading = function() {
   return (table);
   }
 
-const renderTbl = function(data) {
+function renderTbl(data) {
   TBL.innerHTML = "";
   if (data.length !== 0) {
     const table = renderTblHeading(); // headings
@@ -26,22 +26,24 @@ const renderTbl = function(data) {
   }
 }
 
- const onUpdate = function(data, index) {
+function onUpdate(data, index) {
   data.splice(index, 1); // delete entire object
   saveLS(data);
   renderTbl(data);
 }
 
-const  renderTblBtn = function(obj, index, data) {
+function renderTblBtn(obj, index, data) {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   const btnDel = document.createElement("button");
   btnEdit.textContent = "Edit";
   btnDel.textContent = "Delete";
+
   btnDel.addEventListener("click", function(e) {
     // array.splice(start, deleteCount, item1, item2, ...);
     onUpdate(data, index);
   });
+
   btnEdit.addEventListener("click", function(e) {
     FORM[1].value = obj.fname;
     FORM[2].value = obj.lname;
@@ -49,12 +51,13 @@ const  renderTblBtn = function(obj, index, data) {
     FORM[4].value = obj.houseSize;
     onUpdate(data, index);
   });
+
   td.appendChild(btnEdit);
   td.appendChild(btnDel);
   return td;
 }
 
- const renderTblBody = function(data) {
+function renderTblBody(data) {
   const tbody = document.createElement("tbody");
   data.forEach(function(obj, index) {
     const tr = document.createElement("tr");
