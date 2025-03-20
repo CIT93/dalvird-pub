@@ -1,7 +1,7 @@
 import {TBL, FORM} from "./global.js";
 import {saveLS} from "./storage.js"
 
-const renderTblHeading = function() {
+const renderTblHeading = () => {
   const table = document.createElement("table");
   const thead = document.createElement("thead");
   const tr = document.createElement("tr");
@@ -16,7 +16,7 @@ const renderTblHeading = function() {
   return (table);
   }
 
-const renderTbl = function(data) {
+const renderTbl = data => {
   TBL.innerHTML = "";
   if (data.length !== 0) {
     const table = renderTblHeading(); // headings
@@ -26,23 +26,23 @@ const renderTbl = function(data) {
   }
 }
 
- const onUpdate = function(data, index) {
+ const onUpdate = (data, index) => {
   data.splice(index, 1); // delete entire object
   saveLS(data);
   renderTbl(data);
 }
 
-const  renderTblBtn = function(obj, index, data) {
+const  renderTblBtn = (obj, index, data) => {
   const td = document.createElement("td");
   const btnEdit = document.createElement("button");
   const btnDel = document.createElement("button");
   btnEdit.textContent = "Edit";
   btnDel.textContent = "Delete";
-  btnDel.addEventListener("click", function(e) {
+  btnDel.addEventListener("click", e => {
     // array.splice(start, deleteCount, item1, item2, ...);
     onUpdate(data, index);
   });
-  btnEdit.addEventListener("click", function(e) {
+  btnEdit.addEventListener("click", e => {
     FORM[1].value = obj.fname;
     FORM[2].value = obj.lname;
     FORM[3].value = obj.houseHoldMembers;
@@ -54,7 +54,7 @@ const  renderTblBtn = function(obj, index, data) {
   return td;
 }
 
- const renderTblBody = function(data) {
+ const renderTblBody = data => {
   const tbody = document.createElement("tbody");
   data.forEach(function(obj, index) {
     const tr = document.createElement("tr");
