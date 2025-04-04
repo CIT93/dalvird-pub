@@ -22,6 +22,8 @@ FORM.addEventListener("submit", function(e) {  //callback
     const miliTime = minutesToMili(eMins);
     setTimer(workoutDone, miliTime);
 
+    FORM.reset();
+
 });
 
  const setTimer = (callback, mili) => {
