@@ -1,0 +1,38 @@
+html {
+    font-size: 20px;
+}
+body {
+    background-color: #dcefb9;
+    color: rgb(95, 74, 46);
+}
+form {
+    padding-top: 20px;
+}
+fieldset {
+    border-width: 3px;
+    border-style: solid;
+    border-color: rgb(95, 74, 46);
+}
+input:in-range {
+    background-color: lightgreen;
+}
+input:out-of-range {
+    background-color: lightcoral;
+}
+table, th, td {
+    border: 1px solid;
+    padding: 5px;
+}
+.error {
+    color: red;
+}
+.invalid {
+    border-color: red;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 1em; /* optional spacing between elements */
+    
+    align-items: center;
+  }
