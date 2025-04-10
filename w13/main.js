@@ -14,8 +14,8 @@ FORM.addEventListener("submit", function(e) {
     start.textContent = `Start ${eType}! Goal: ${eReps} reps`;
     OUTPUT.appendChild(start);
 
-    const milliseconds = minutesToMilliseconds(eMins);    // converting minutes to milliseconds
-    timer(milliseconds).then(workoutDone)
+    //const milliseconds = minutesToMilliseconds(eMins);    // converting minutes to milliseconds
+    timer(eMins).then(workoutDone)
     .catch(error)
 
     FORM.reset();
@@ -24,15 +24,17 @@ FORM.addEventListener("submit", function(e) {
 
 const timer = (ms) => {
   return new Promise(function(resolve, reject){
-    setTimeout(() => {
-      resolve("Workout complete");
-         }, ms);
-  })
+    if (ms === "") {
+      reject("Time selection");
+    } else {
+    setTimeout(() => { resolve("Workout complete");}, ms);
+    }
+  });
 }
 
-const error = () => {
+const error = (message) => {
   const end = document.createElement("h3");
-  end.textContent = `Error`;
+  end.textContent = `Error: ${message}`;
   OUTPUT.appendChild(end);
 }
 
