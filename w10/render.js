@@ -41,7 +41,7 @@ const  renderTblBtn = (obj, index, data) => {
   btnDel.addEventListener("click", e => {
     // array.splice(start, deleteCount, item1, item2, ...);
     onUpdate(data, index);
-  });
+  });re
   btnEdit.addEventListener("click", e => {
     FORM[1].value = obj.fname;
     FORM[2].value = obj.lname;
