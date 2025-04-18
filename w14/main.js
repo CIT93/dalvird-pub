@@ -29,24 +29,24 @@
 
 //start2();
 
-function getData() {
-    return new Promise((resolve, reject) => {
-        setTimeout(() => {
-            reject('something wrong!');
-        }, 1);
-    })
-}
+// function getData() {
+//     return new Promise((resolve, reject) => {
+//         setTimeout(() => {
+//             reject('something wrong!');
+//         }, 1);
+//     })
+// }
 
-async function start() {
-    try {
-    // success
-    const result = await getData();
-    }
-    catch (error) {
-    //failure
-    console.log(error);
-    }
-}
+// async function start() {
+//     try {
+//     // success
+//     const result = await getData();
+//     }
+//     catch (error) {
+//     //failure
+//     console.log(error);
+//     }
+// }
 
 // async function start2() {
 //     const result = await getData()
@@ -55,5 +55,26 @@ async function start() {
 //     }) 
 //     console.log(error);
 // }
+
+//start();
+
+
+async function start() {
+    try {
+        const data = await fetch('https://api.weather.gov/gridpoints/OKX/35,35/forecast');
+        const result = await data.json();
+        onSucc(result.properties.periods[1].shortForecast);
+    } catch(e) {
+        onFailure();
+    }
+}
+
+const onSucc = (result) => {
+    console.log(result);
+}
+
+const onFailure = (e) => {
+    console.log(e);
+}
 
 start();
