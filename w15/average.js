@@ -25,6 +25,7 @@ const addRow = (avg) => {
    for (let i = 0; i < len; i++) {
     let newCell = newRow.insertCell(i);     //will enter new 6 cells
    }
+    newRow.style.backgroundColor = "rgba(0, 229, 255, 0.44)";
     newRow.cells[5].innerText = "Average FP score";
     newRow.cells[6].innerText = avg;
   }
