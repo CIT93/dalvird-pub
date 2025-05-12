@@ -6,59 +6,80 @@
     <title>Week 10 - Carbon Footprint - Pub</title>
     <script type="module" src="main.js"></script>
     <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cal+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+
 </head>
 <body>
-    <form id="form">
-        <fieldset>
-            <legend>Calculating Your Carbon Footprint Points</legend>
-            <div>
-                <label for="">First Name:</label>
-                <input type="text" name="firstname" id="firstName">
-                <span id="firstNameError" class="error"></span>
+        <div class="container">
+            <div class="img-container">
+                <img src="https://i.pinimg.com/474x/11/82/1c/11821c930684a9eb26590550f7259396.jpg" alt="">
             </div>
-            <div>
-                <label for="">Last Name:</label>
-                <input type="text" name="lastname" id="lastName">
-                <span id="lastNameError" class="error"></span>
-            </div>
-            <div>
-                <label for="">Count the members of your household</label>
-                <input type="number" name="housem" min="1" max="6" required>
-            </div>
-            <div>
-                <label for="">Consider the size of your home</label>
-                <select name="houses" required>
-                    <option value="">---Please enter size of home---</option>
-                    <option value="small">Small</option>
-                    <option value="medium">Medium</option>
-                    <option value="large">Large</option>
-                    <option value="apt">Apartment</option>
-                </select>
-            </div>
-            <div>
-                <label for="">Food Choice: Meat</label>
-                <select name="meat" required>
-                    <option value=""></option>
-                    <option value="meatEveryday">Domestic meat everyday</option>
-                    <option value="meat">Domestic meat every other day</option>
-                    <option value="vegetarian">Vegetarian</option>
-                    <option value="vegan">Vegan</option>
-                    <option value="wildMeat">Wild meat</option>
-                </select>
-            </div>
-            <div>
-                <label for="">Diet type:</label>
-                <select name="diet" required>
-                    <option value=""></option>
-                    <option value="prepackaged">Frozen pizza, cereal, and potato chips</option>
-                    <option value="balanced">Fresh and convenience food</option>
-                    <option value="fresh">Locally grown or hunted food</option>
-                </select>
-            </div>
-            <button type="submit">Submit</button>
-            <span id="submitError" class="error"></span>
-        </fieldset>
-    </form>
+            <form id="form">
+                <!-- <fieldset> -->
+                <h1>Calculate Your Carbon Footprint</h1>
+                <div class="input-box">
+                    <!-- <label for="fname">First Name:</label> -->
+                    <input type="text" name="firstname" id="firstName" placeholder="First Name">
+                    <span id="firstNameError" class="error"></span>
+                </div>
+                <div class="input-box">
+                    <!-- <label for="lname">Last Name:</label> -->
+                    <input type="text" name="lastname" id="lastName" placeholder="Last Name">
+                    <span id="lastNameError" class="error"></span>
+                </div>
+                <div class="input-box">
+                    <!-- <label for="">Count the members of your household</label> -->
+                    <input type="number" name="housem" min="1" max="6" required placeholder="Members in Household">
+                </div>
+                <div class="select-box">
+                    <!-- <label for="">Consider the size of your home</label> -->
+                    <select name="houses" required>
+                        <option value="">Size of home</option>
+                        <option value="small">Small</option>
+                        <option value="medium">Medium</option>
+                        <option value="large">Large</option>
+                        <option value="apt">Apartment</option>
+                    </select>
+                    <div class="select-icon">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="select-box">
+                    <!-- <label for="">Food Choice</label> -->
+                    <select name="meat" required>
+                        <option value="">Meat Choice</option>
+                        <option value="meatEveryday">Domestic meat everyday</option>
+                        <option value="meat">Domestic meat every other day</option>
+                        <option value="vegetarian">Vegetarian</option>
+                        <option value="vegan">Vegan</option>
+                        <option value="wildMeat">Wild meat</option>
+                    </select>
+                    <div class="select-icon">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="select-box">
+                    <!-- <label for="">Diet type:</label> -->
+                    <select name="diet" required>
+                        <option value="">Diet Type</option>
+                        <option value="prepackaged">Frozen pizza, cereal, and potato chips</option>
+                        <option value="balanced">Fresh and convenience food</option>
+                        <option value="fresh">Locally grown or hunted food</option>
+                    </select>
+                    <div class="select-icon">
+                        <i class="fa-solid fa-chevron-down"></i>
+                    </div>
+                </div>
+                <div class="btn">
+                    <button type="submit">Submit</button>
+                </div>
+                <span id="submitError" class="error"></span>
+                <!-- </fieldset> -->
+            </form>
+        </div>
     <div id="tab-data"></div>
 </body>
 </html>
