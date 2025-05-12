@@ -55,20 +55,21 @@
                     <option value="fresh">Locally grown or hunted food</option>
                 </select>
             </div>
-            <div>
-                <label for="">Dishwasher / Washing machine run per week</label>
+            <div class="waterConsumption">
+                <label for="">Dishwasher and/or Washing machine run per week</label>
                 <select name="water" required>
                     <option value=""></option>
                     <option value="3"> If you run it more than 9 times</option> 
                     <option value="2"> If you run it 4 to 9 times</option>
                     <option value="1">If you run it 1 to 3 times</option>
-                    <option value="0">Don't have a dishwater</option>
                 </select>
             </div>
-            <label>
-                Do you have a dishwasher?
-                <input type="checkbox">
-            </label>
+            <div class="dishWasher">
+                <label>
+                    Do you have a dishwasher?
+                    <input type="checkbox" name="dishWasher">
+                </label>
+            </div>
             <div>
                 <button type="submit">Submit</button>
             </div>

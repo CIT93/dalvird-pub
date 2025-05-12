@@ -33,6 +33,8 @@ FORM.addEventListener("submit", e => {
     e.preventDefault();
     if (FNAME.value !== "" && LNAME.value !== "") {
       SUBMIT.textContent = "";
+      const checkbox = document.querySelector('input[type="checkbox"]');
+      let dishWasher = checkbox.checked === true ? 2 : 0;
       const fpObj = new FP(
         FNAME.value, 
         LNAME.value, 
@@ -40,7 +42,8 @@ FORM.addEventListener("submit", e => {
         e.target.houses.value, 
         e.target.meat.value, 
         e.target.diet.value,
-        parseInt(e.target.water.value));
+        parseInt(e.target.water.value),
+        dishWasher);
       cfpData.push(fpObj);
       saveLS(cfpData);
       renderTbl(cfpData);

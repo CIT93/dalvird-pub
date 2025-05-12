@@ -1,17 +1,17 @@
 class FP {
-    constructor(first, last, houseMembers, houseSize, meat, diet, water) {
+    constructor(first, last, houseMembers, houseSize, meat, diet, water, dishWasher) {
         this.first = first;
         this.last = last;
         this.houseMembers = houseMembers;
         this.houseSize = houseSize;
-        //this.houseMembersPTS = this.determineHouseMemberPTS();
-        //this.houseSizePTS = this.determineHouseSizePTS();
         this.meat = meat;
         this.diet = diet;
-        this.water = water;
-        //this.meatPTS = this.determineMeatPTS();
-        //this.dietPTS = this.determineDietPTS();
-        this.total = this.determineHouseMemberPTS() + this.determineHouseSizePTS() + this.determineDietPTS() + this.determineMeatPTS() + water;
+        if (dishWasher === 2) {
+          this.water = water * dishWasher;
+        } else {
+          this.water = water;
+        }
+        this.total = this.determineHouseMemberPTS() + this.determineHouseSizePTS() + this.determineDietPTS() + this.determineMeatPTS() + this.water;
     }
     determineHouseSizePTS() {
         if(this.houseSize === "large") {
